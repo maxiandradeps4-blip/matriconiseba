@@ -226,6 +226,57 @@
       color:#6a6255;
     }
 
+
+    .save-date-wrap{
+      margin-top:18px;
+      background:rgba(251,247,239,.93);
+      border:1px solid rgba(169,120,24,.28);
+      box-shadow:0 14px 36px rgba(72,50,24,.09);
+      padding:26px 20px;
+      text-align:center;
+    }
+
+    .save-date-title{
+      margin:0 0 14px;
+      font-family:"Cormorant Garamond",serif;
+      color:var(--gold);
+      font-size:clamp(30px,5vw,44px);
+      line-height:1;
+      font-style:italic;
+      font-weight:600;
+    }
+
+    .save-date-btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:50px;
+      padding:0 24px;
+      border:1px solid var(--gold);
+      background:var(--gold);
+      color:#fffaf2;
+      text-decoration:none;
+      text-transform:uppercase;
+      letter-spacing:.12em;
+      font-size:11px;
+      font-weight:600;
+      cursor:pointer;
+      transition:.2s ease;
+    }
+
+    .save-date-btn:hover{filter:brightness(.96); transform:translateY(-1px)}
+
+    .calendar-options{
+      display:none;
+      justify-content:center;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:14px;
+    }
+
+    .calendar-options.open{display:flex}
+
+
     footer{
       padding:26px 0 0;
       text-align:center;
@@ -289,6 +340,18 @@
       <p class="note">Nos encantará compartir este día con ustedes.</p>
     </section>
 
+
+    <section class="save-date-wrap" aria-labelledby="save-date-title">
+      <h2 class="save-date-title" id="save-date-title">Guarda la fecha</h2>
+      <button class="save-date-btn" id="saveDateBtn" type="button" aria-expanded="false" aria-controls="calendarOptions">Guarda la fecha</button>
+      <div class="calendar-options" id="calendarOptions">
+        <a class="btn" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Matrimonio%20Constanza%20%26%20Sebasti%C3%A1n&dates=20270306T203000Z%2F20270306T213000Z&details=Hora%20de%20inicio%3A%2017%3A30%20hrs.&location=Mar%C3%ADa%20Luisa%20Santander%20568%2C%20Providencia%2C%20Santiago%2C%20Chile" target="_blank" rel="noopener">Google Calendar</a>
+        <a class="btn" href="https://outlook.live.com/calendar/0/deeplink/compose?subject=Matrimonio%20Constanza%20%26%20Sebasti%C3%A1n&startdt=2027-03-06T17%3A30%3A00-03%3A00&enddt=2027-03-06T18%3A30%3A00-03%3A00&body=Hora%20de%20inicio%3A%2017%3A30%20hrs.&location=Mar%C3%ADa%20Luisa%20Santander%20568%2C%20Providencia%2C%20Santiago%2C%20Chile" target="_blank" rel="noopener">Outlook</a>
+        <a class="btn" href="matrimonio-constanza-sebastian.ics" download>Archivo .ICS</a>
+      </div>
+    </section>
+
+
     <footer>Constanza & Sebastián · 06.03.2027</footer>
   </main>
 
@@ -330,6 +393,15 @@
       el.minutes.textContent = pad(minutes);
       el.seconds.textContent = pad(seconds);
     }
+
+
+    const saveDateBtn = document.getElementById('saveDateBtn');
+    const calendarOptions = document.getElementById('calendarOptions');
+    saveDateBtn.addEventListener('click', () => {
+      const isOpen = calendarOptions.classList.toggle('open');
+      saveDateBtn.setAttribute('aria-expanded', String(isOpen));
+    });
+
 
     updateCountdown();
     setInterval(updateCountdown, 1000);

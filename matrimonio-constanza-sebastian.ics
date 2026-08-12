@@ -1,0 +1,13 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Constanza y Sebastian//Matrimonio//ES
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:constanza-sebastian-20270306@example.local
+DTSTAMP:20260812T144000Z
+DTSTART:20270306T203000Z
+SUMMARY:Matrimonio Constanza & Sebastián
+LOCATION:María Luisa Santander 568, Providencia, Santiago, Chile
+DESCRIPTION:Hora de inicio: 17:30 hrs.
+END:VEVENT
+END:VCALENDAR
