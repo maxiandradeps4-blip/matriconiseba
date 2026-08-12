@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#f7efe3" />
+  <title>Constanza & Sebastián — Matrimonio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500;1,600&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --paper:#f7efe3;
+      --paper-2:#fbf7ef;
+      --ink:#244129;
+      --gold:#a97818;
+      --pink:#d98e99;
+      --line:#c59b47;
+      --shadow:rgba(72,50,24,.16);
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      background:
+        radial-gradient(circle at 15% 15%, rgba(217,142,153,.12), transparent 28%),
+        radial-gradient(circle at 85% 80%, rgba(83,110,72,.10), transparent 28%),
+        var(--paper);
+      color:var(--ink);
+      font-family:"Montserrat",sans-serif;
+    }
+
+    .page{
+      width:min(100%, 920px);
+      margin:0 auto;
+      padding:20px 14px 56px;
+    }
+
+    .poster-wrap{
+      position:relative;
+      border:1px solid rgba(169,120,24,.26);
+      background:var(--paper-2);
+      box-shadow:0 22px 60px var(--shadow);
+      overflow:hidden;
+    }
+
+    .poster{
+      display:block;
+      width:100%;
+      height:auto;
+    }
+
+    .countdown-shell{
+      position:relative;
+      margin:-12px auto 0;
+      width:calc(100% - 26px);
+      padding:30px 18px 28px;
+      background:rgba(251,247,239,.96);
+      border:1px solid rgba(169,120,24,.34);
+      box-shadow:0 14px 36px rgba(72,50,24,.12);
+      text-align:center;
+    }
+
+    .eyebrow{
+      margin:0 0 8px;
+      color:var(--gold);
+      font-size:11px;
+      letter-spacing:.24em;
+      text-transform:uppercase;
+      font-weight:600;
+    }
+
+    h1,h2{
+      font-family:"Cormorant Garamond",serif;
+      color:var(--gold);
+      font-weight:600;
+    }
+
+    h1{
+      margin:0 0 20px;
+      font-size:clamp(38px,7vw,68px);
+      line-height:.92;
+      font-style:italic;
+    }
+
+    .countdown{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:10px;
+      max-width:690px;
+      margin:0 auto;
+    }
+
+    .time-card{
+      border-top:1px solid var(--line);
+      border-bottom:1px solid var(--line);
+      padding:14px 6px 12px;
+      min-width:0;
+    }
+
+    .number{
+      display:block;
+      font-family:"Cormorant Garamond",serif;
+      font-size:clamp(34px,7vw,58px);
+      color:var(--ink);
+      line-height:1;
+      font-variant-numeric:tabular-nums;
+    }
+
+    .label{
+      display:block;
+      margin-top:7px;
+      color:var(--gold);
+      font-size:10px;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+    }
+
+    .event-line{
+      margin:22px auto 0;
+      max-width:620px;
+      color:#5a5548;
+      font-family:"Cormorant Garamond",serif;
+      font-size:clamp(19px,3vw,25px);
+      line-height:1.35;
+    }
+
+    .section{
+      margin-top:18px;
+      background:rgba(251,247,239,.93);
+      border:1px solid rgba(169,120,24,.28);
+      box-shadow:0 14px 36px rgba(72,50,24,.09);
+      padding:30px 20px;
+      text-align:center;
+    }
+
+    .flourish{
+      font-family:"Cormorant Garamond",serif;
+      color:var(--gold);
+      font-size:24px;
+      letter-spacing:.35em;
+      margin-bottom:8px;
+    }
+
+    h2{
+      margin:0;
+      font-size:clamp(34px,6vw,50px);
+      line-height:1;
+      font-style:italic;
+    }
+
+    .address{
+      margin:14px 0 20px;
+      font-family:"Cormorant Garamond",serif;
+      font-size:22px;
+      color:#5d574b;
+    }
+
+    .map-frame{
+      position:relative;
+      overflow:hidden;
+      border:1px solid rgba(169,120,24,.34);
+      background:#eee5d9;
+      aspect-ratio:16/9;
+      min-height:320px;
+    }
+
+    .map-frame iframe{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      border:0;
+      filter:sepia(.15) saturate(.85) contrast(.96);
+    }
+
+    .actions{
+      display:flex;
+      justify-content:center;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:18px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:44px;
+      padding:0 18px;
+      border:1px solid var(--gold);
+      color:var(--gold);
+      background:transparent;
+      text-decoration:none;
+      text-transform:uppercase;
+      letter-spacing:.12em;
+      font-size:11px;
+      font-weight:600;
+      transition:.2s ease;
+    }
+
+    .btn:hover{background:var(--gold); color:#fffaf2}
+
+    .note{
+      margin:20px auto 0;
+      max-width:620px;
+      font-family:"Cormorant Garamond",serif;
+      font-style:italic;
+      font-size:19px;
+      color:#6a6255;
+    }
+
+    footer{
+      padding:26px 0 0;
+      text-align:center;
+      color:#987c48;
+      font-size:10px;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+    }
+
+    @media (max-width:640px){
+      .page{padding:0 0 36px}
+      .poster-wrap{border-left:0;border-right:0}
+      .countdown-shell{width:calc(100% - 20px); padding:26px 10px 24px}
+      .countdown{gap:5px}
+      .time-card{padding:12px 2px 10px}
+      .label{font-size:8px;letter-spacing:.08em}
+      .section{margin:14px 10px 0;padding:26px 12px}
+      .map-frame{min-height:360px;aspect-ratio:4/5}
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="poster-wrap" aria-label="Invitación de matrimonio">
+      <img class="poster" src="invitacion.png" alt="Invitación de matrimonio de Constanza y Sebastián" />
+    </section>
+
+    <section class="countdown-shell" aria-labelledby="countdown-title">
+      <p class="eyebrow">Falta muy poco para</p>
+      <h1 id="countdown-title">Constanza & Sebastián</h1>
+
+      <div class="countdown" aria-live="polite">
+        <div class="time-card"><span class="number" id="days">000</span><span class="label">días</span></div>
+        <div class="time-card"><span class="number" id="hours">00</span><span class="label">horas</span></div>
+        <div class="time-card"><span class="number" id="minutes">00</span><span class="label">minutos</span></div>
+        <div class="time-card"><span class="number" id="seconds">00</span><span class="label">segundos</span></div>
+      </div>
+
+      <p class="event-line">6 de marzo de 2027 · 17:30 hrs.<br>María Luisa Santander 568, Providencia</p>
+    </section>
+
+    <section class="section" aria-labelledby="map-title">
+      <div class="flourish">✦</div>
+      <p class="eyebrow">Cómo llegar</p>
+      <h2 id="map-title">El lugar</h2>
+      <p class="address">María Luisa Santander 568, Providencia, Santiago</p>
+
+      <div class="map-frame">
+        <iframe
+          title="Mapa del lugar del matrimonio"
+          src="https://www.google.com/maps?q=Mar%C3%ADa%20Luisa%20Santander%20568%2C%20Providencia%2C%20Santiago%2C%20Chile&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          allowfullscreen>
+        </iframe>
+      </div>
+
+      <div class="actions">
+        <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Mar%C3%ADa%20Luisa%20Santander%20568%2C%20Providencia%2C%20Santiago%2C%20Chile" target="_blank" rel="noopener">Abrir en Google Maps</a>
+      </div>
+
+      <p class="note">Nos encantará compartir este día con ustedes.</p>
+    </section>
+
+    <footer>Constanza & Sebastián · 06.03.2027</footer>
+  </main>
+
+  <script>
+    // Hora del matrimonio en Chile. Marzo de 2027 corresponde a UTC-3.
+    const weddingDate = new Date('2027-03-06T17:30:00-03:00');
+
+    const el = {
+      days: document.getElementById('days'),
+      hours: document.getElementById('hours'),
+      minutes: document.getElementById('minutes'),
+      seconds: document.getElementById('seconds')
+    };
+
+    function pad(value, size = 2) {
+      return String(value).padStart(size, '0');
+    }
+
+    function updateCountdown() {
+      const diff = weddingDate.getTime() - Date.now();
+
+      if (diff <= 0) {
+        el.days.textContent = '000';
+        el.hours.textContent = '00';
+        el.minutes.textContent = '00';
+        el.seconds.textContent = '00';
+        document.querySelector('.eyebrow').textContent = 'Hoy celebramos';
+        return;
+      }
+
+      const totalSeconds = Math.floor(diff / 1000);
+      const days = Math.floor(totalSeconds / 86400);
+      const hours = Math.floor((totalSeconds % 86400) / 3600);
+      const minutes = Math.floor((totalSeconds % 3600) / 60);
+      const seconds = totalSeconds % 60;
+
+      el.days.textContent = pad(days, 3);
+      el.hours.textContent = pad(hours);
+      el.minutes.textContent = pad(minutes);
+      el.seconds.textContent = pad(seconds);
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
+</body>
+</html>
