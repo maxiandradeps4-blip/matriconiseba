@@ -1,682 +1,339 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Constanza & Sebastián</title>
-  <meta name="description" content="Invitación web de matrimonio de Constanza y Sebastián" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#f7efe3" />
+  <title>Constanza & Sebastián — Matrimonio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500;1,600&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --bg: #f7f1ea;
-      --paper: #fbf7f1;
-      --paper-2: #fdf9f4;
-      --gold: #b1883f;
-      --gold-soft: rgba(177, 136, 63, 0.42);
-      --text: #866d4a;
-      --pink: #dca0ae;
-      --pink-soft: rgba(220, 160, 174, 0.26);
-      --sage: #5f6b48;
-      --shadow: 0 16px 38px rgba(125, 92, 45, 0.12);
+    :root{
+      --paper:#f7efe3;
+      --paper-2:#fbf7ef;
+      --ink:#244129;
+      --gold:#a97818;
+      --pink:#d98e99;
+      --line:#c59b47;
+      --shadow:rgba(72,50,24,.16);
     }
 
-    * { box-sizing: border-box; }
-
-    body {
-      margin: 0;
-      font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
-      color: var(--text);
-      background: linear-gradient(180deg, #faf5ef 0%, #f8f2eb 100%);
-      min-height: 100vh;
-      letter-spacing: 0.01em;
-    }
-
-    img { max-width: 100%; display: block; }
-
-    .page {
-      width: min(1200px, calc(100% - 28px));
-      margin: 0 auto;
-      padding: 26px 0 44px;
-    }
-
-    .invitation-shell {
-      position: relative;
-      background: var(--paper);
-      border-radius: 22px;
-      box-shadow: var(--shadow);
-      border: 1px solid rgba(177, 136, 63, 0.16);
-      overflow: hidden;
-    }
-
-    .invitation-shell::before {
-      content: "";
-      position: absolute;
-      inset: 16px;
-      border: 1px solid rgba(177, 136, 63, 0.18);
-      pointer-events: none;
-      border-radius: 12px;
-    }
-
-    .invitation {
-      position: relative;
-      min-height: 980px;
-      padding: 38px 24px 32px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      isolation: isolate;
-      background: #f9f4ee;
-    }
-
-    .watercolor {
-      position: absolute;
-      top: 54px;
-      bottom: 110px;
-      width: min(18vw, 170px);
-      opacity: 0.62;
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
       background:
-        linear-gradient(90deg,
-          rgba(216, 192, 185, 0.22) 0%,
-          rgba(216, 192, 185, 0.22) 9%,
-          transparent 9%,
-          transparent 15%,
-          rgba(226, 182, 190, 0.38) 15%,
-          rgba(226, 182, 190, 0.38) 29%,
-          transparent 29%,
-          transparent 36%,
-          rgba(211, 201, 190, 0.26) 36%,
-          rgba(211, 201, 190, 0.26) 47%,
-          transparent 47%,
-          transparent 56%,
-          rgba(232, 170, 181, 0.30) 56%,
-          rgba(232, 170, 181, 0.30) 70%,
-          transparent 70%,
-          transparent 78%,
-          rgba(220, 206, 197, 0.24) 78%,
-          rgba(220, 206, 197, 0.24) 100%);
-      filter: blur(0.2px);
-      z-index: 0;
+        radial-gradient(circle at 15% 15%, rgba(217,142,153,.12), transparent 28%),
+        radial-gradient(circle at 85% 80%, rgba(83,110,72,.10), transparent 28%),
+        var(--paper);
+      color:var(--ink);
+      font-family:"Montserrat",sans-serif;
     }
 
-    .watercolor.left { left: 56px; }
-    .watercolor.right { right: 56px; }
-
-    .watercolor::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        repeating-linear-gradient(180deg,
-          rgba(255,255,255,0.00) 0 18px,
-          rgba(255,255,255,0.10) 18px 22px,
-          rgba(255,255,255,0.00) 22px 40px);
-      opacity: .45;
+    .page{
+      width:min(100%, 920px);
+      margin:0 auto;
+      padding:20px 14px 56px;
     }
 
-    .invite-stage {
-      position: relative;
-      width: min(100%, 920px);
-      min-height: 900px;
-      z-index: 1;
+
+    .header-banner{
+      margin:0 0 18px;
+      border:1px solid rgba(169,120,24,.26);
+      background:var(--paper-2);
+      box-shadow:0 14px 36px rgba(72,50,24,.10);
+      overflow:hidden;
     }
 
-    .oval {
-      position: absolute;
-      inset: 128px 240px 170px;
-      border: 3px solid var(--gold);
-      border-radius: 50% / 12%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(252, 247, 240, 0.9);
-      box-shadow: inset 0 0 0 10px rgba(255,255,255,0.36);
-      z-index: 2;
+    .header-banner img{
+      display:block;
+      width:100%;
+      height:auto;
     }
 
-    .oval::before {
-      content: "";
-      position: absolute;
-      inset: 14px;
-      border: 1px solid rgba(177, 136, 63, 0.48);
-      border-radius: 50% / 12%;
+    .poster-wrap{
+      position:relative;
+      border:1px solid rgba(169,120,24,.26);
+      background:var(--paper-2);
+      box-shadow:0 22px 60px var(--shadow);
+      overflow:hidden;
     }
 
-    .content {
-      position: relative;
-      text-align: center;
-      padding: 54px 36px;
-      max-width: 380px;
-      z-index: 1;
+    .poster{
+      display:block;
+      width:100%;
+      height:auto;
     }
 
-    .mini-flower {
-      width: 34px;
-      height: auto;
-      object-fit: contain;
-      object-position: center;
-      margin: 2px auto 10px;
-      opacity: 0.9;
+    .countdown-shell{
+      position:relative;
+      margin:-12px auto 0;
+      width:calc(100% - 26px);
+      padding:30px 18px 28px;
+      background:rgba(251,247,239,.96);
+      border:1px solid rgba(169,120,24,.34);
+      box-shadow:0 14px 36px rgba(72,50,24,.12);
+      text-align:center;
     }
 
-    .eyebrow {
-      font-size: 1rem;
-      font-weight: 600;
-      letter-spacing: 0.09em;
-      color: var(--gold);
-      text-transform: uppercase;
-      margin-bottom: 12px;
+    .eyebrow{
+      margin:0 0 8px;
+      color:var(--gold);
+      font-size:11px;
+      letter-spacing:.24em;
+      text-transform:uppercase;
+      font-weight:600;
     }
 
-    .names {
-      color: var(--gold);
-      font-style: italic;
-      line-height: 0.94;
-      margin: 0;
-      font-weight: 600;
-      font-size: clamp(2.9rem, 4vw, 4.6rem);
+    h1,h2{
+      font-family:"Cormorant Garamond",serif;
+      color:var(--gold);
+      font-weight:600;
     }
 
-    .amp {
-      display: block;
-      font-size: clamp(2.5rem, 3vw, 3.25rem);
-      margin: 0.05em 0 0.02em;
-      font-style: italic;
+    h1{
+      margin:0 0 20px;
+      font-size:clamp(38px,7vw,68px);
+      line-height:.92;
+      font-style:italic;
     }
 
-    .divider {
-      width: 104px;
-      height: 1px;
-      background: rgba(177, 136, 63, 0.56);
-      margin: 20px auto;
-      position: relative;
+    .countdown{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:10px;
+      max-width:690px;
+      margin:0 auto;
     }
 
-    .divider::after {
-      content: "";
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--gold);
-      transform: translate(-50%, -50%);
+    .time-card{
+      border-top:1px solid var(--line);
+      border-bottom:1px solid var(--line);
+      padding:14px 6px 12px;
+      min-width:0;
     }
 
-    .meta {
-      color: var(--gold);
-      font-size: clamp(1.35rem, 1.6vw, 1.6rem);
-      line-height: 1.55;
-      font-weight: 500;
-      text-transform: uppercase;
+    .number{
+      display:block;
+      font-family:"Cormorant Garamond",serif;
+      font-size:clamp(34px,7vw,58px);
+      color:var(--ink);
+      line-height:1;
+      font-variant-numeric:tabular-nums;
     }
 
-    .address {
-      color: #8c744f;
-      font-size: clamp(1.2rem, 1.35vw, 1.42rem);
-      line-height: 1.28;
-      margin-top: 18px;
-      font-style: italic;
-      font-weight: 500;
+    .label{
+      display:block;
+      margin-top:7px;
+      color:var(--gold);
+      font-size:10px;
+      letter-spacing:.16em;
+      text-transform:uppercase;
     }
 
-    .branch,
-    .dog,
-    .bottom-ornament,
-    .top-flower {
-      position: absolute;
-      z-index: 3;
-      pointer-events: none;
+    .event-line{
+      margin:22px auto 0;
+      max-width:620px;
+      color:#5a5548;
+      font-family:"Cormorant Garamond",serif;
+      font-size:clamp(19px,3vw,25px);
+      line-height:1.35;
     }
 
-    .branch {
-      top: 62px;
-      width: min(35vw, 330px);
-      opacity: 0.98;
+    .section{
+      margin-top:18px;
+      background:rgba(251,247,239,.93);
+      border:1px solid rgba(169,120,24,.28);
+      box-shadow:0 14px 36px rgba(72,50,24,.09);
+      padding:30px 20px;
+      text-align:center;
     }
 
-    .branch.left { left: 70px; }
-    .branch.right { right: 70px; transform: scaleX(-1); }
-
-    .top-flower {
-      top: 112px;
-      left: 50%;
-      width: min(18vw, 165px);
-      transform: translateX(-50%);
+    .flourish{
+      font-family:"Cormorant Garamond",serif;
+      color:var(--gold);
+      font-size:24px;
+      letter-spacing:.35em;
+      margin-bottom:8px;
     }
 
-    .dog {
-      bottom: 72px;
-      width: min(22vw, 210px);
-      opacity: 0.98;
+    h2{
+      margin:0;
+      font-size:clamp(34px,6vw,50px);
+      line-height:1;
+      font-style:italic;
     }
 
-    .dog.left { left: 118px; }
-    .dog.right { right: 118px; transform: scaleX(-1); }
-
-    .bottom-ornament {
-      bottom: 14px;
-      left: 50%;
-      width: min(42vw, 390px);
-      transform: translateX(-50%);
-      opacity: 0.98;
+    .address{
+      margin:14px 0 20px;
+      font-family:"Cormorant Garamond",serif;
+      font-size:22px;
+      color:#5d574b;
     }
 
-    .sparkle,
-    .sparkle::before,
-    .sparkle::after,
-    .ring1,
-    .ring2 {
-      position: absolute;
-      pointer-events: none;
-      z-index: 1;
+    .map-frame{
+      position:relative;
+      overflow:hidden;
+      border:1px solid rgba(169,120,24,.34);
+      background:#eee5d9;
+      aspect-ratio:16/9;
+      min-height:320px;
     }
 
-    .sparkle {
-      top: 82px;
-      left: 50%;
-      width: 3px;
-      height: 3px;
-      background: var(--gold);
-      border-radius: 50%;
-      transform: translateX(-50%);
-      box-shadow: 0 -16px 0 0 var(--gold), 0 16px 0 0 var(--gold), 16px 0 0 0 var(--gold), -16px 0 0 0 var(--gold);
+    .map-frame iframe{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      border:0;
+      filter:sepia(.15) saturate(.85) contrast(.96);
     }
 
-    .sparkle::before,
-    .sparkle::after {
-      content: "";
-      width: 54px;
-      height: 54px;
-      border: 1px solid rgba(177, 136, 63, 0.24);
-      border-radius: 50%;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
+    .actions{
+      display:flex;
+      justify-content:center;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:18px;
     }
 
-    .sparkle::after {
-      width: 10px;
-      height: 10px;
-      border: 2px solid var(--gold);
-      background: transparent;
-      transform: translate(-50%, -50%) rotate(45deg);
-      border-radius: 0;
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:44px;
+      padding:0 18px;
+      border:1px solid var(--gold);
+      color:var(--gold);
+      background:transparent;
+      text-decoration:none;
+      text-transform:uppercase;
+      letter-spacing:.12em;
+      font-size:11px;
+      font-weight:600;
+      transition:.2s ease;
     }
 
-    .ring1 {
-      left: 35px;
-      top: 260px;
-      width: 210px;
-      height: 210px;
-      border: 1px solid rgba(177, 136, 63, 0.22);
-      border-radius: 50%;
+    .btn:hover{background:var(--gold); color:#fffaf2}
+
+    .note{
+      margin:20px auto 0;
+      max-width:620px;
+      font-family:"Cormorant Garamond",serif;
+      font-style:italic;
+      font-size:19px;
+      color:#6a6255;
     }
 
-    .ring2 {
-      right: 35px;
-      top: 252px;
-      width: 210px;
-      height: 210px;
-      border: 1px solid rgba(177, 136, 63, 0.22);
-      border-radius: 50%;
+    footer{
+      padding:26px 0 0;
+      text-align:center;
+      color:#987c48;
+      font-size:10px;
+      letter-spacing:.16em;
+      text-transform:uppercase;
     }
 
-    .info-area {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 22px;
-      margin-top: 22px;
-    }
-
-    .panel {
-      position: relative;
-      background: var(--paper-2);
-      border: 1px solid rgba(177, 136, 63, 0.16);
-      border-radius: 22px;
-      box-shadow: var(--shadow);
-      overflow: hidden;
-    }
-
-    .panel::before {
-      content: "";
-      position: absolute;
-      inset: 14px;
-      border: 1px solid rgba(177, 136, 63, 0.14);
-      border-radius: 12px;
-      pointer-events: none;
-    }
-
-    .panel-inner {
-      position: relative;
-      padding: 34px 24px 28px;
-      z-index: 1;
-    }
-
-    .panel-flower-left,
-    .panel-flower-right {
-      position: absolute;
-      top: 0;
-      width: 180px;
-      opacity: 0.18;
-      z-index: 0;
-      pointer-events: none;
-    }
-
-    .panel-flower-left { left: 0; }
-    .panel-flower-right { right: 0; transform: scaleX(-1); }
-
-    .section-title {
-      text-align: center;
-      color: var(--gold);
-      font-style: italic;
-      font-size: clamp(2rem, 3vw, 3rem);
-      font-weight: 600;
-      margin: 0 0 8px;
-    }
-
-    .section-text {
-      max-width: 50ch;
-      margin: 0 auto 24px;
-      text-align: center;
-      line-height: 1.55;
-      color: #8b7454;
-      font-size: 1.15rem;
-      font-weight: 500;
-    }
-
-    .countdown {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(110px, 1fr));
-      gap: 14px;
-    }
-
-    .time-box {
-      text-align: center;
-      padding: 18px 10px;
-      border-radius: 18px;
-      border: 1px solid rgba(177, 136, 63, 0.18);
-      background: rgba(255,255,255,0.5);
-    }
-
-    .num {
-      font-size: clamp(2.1rem, 4vw, 3.2rem);
-      color: var(--gold);
-      line-height: 1;
-      display: block;
-      font-variant-numeric: tabular-nums;
-      font-weight: 600;
-    }
-
-    .label {
-      display: block;
-      margin-top: 8px;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      font-size: 0.85rem;
-      color: #8e7656;
-      font-weight: 600;
-    }
-
-    .note {
-      text-align: center;
-      margin: 14px 0 0;
-      color: #8a775c;
-      font-size: 1.05rem;
-      font-weight: 500;
-    }
-
-    .map-grid {
-      display: grid;
-      grid-template-columns: 320px 1fr;
-      gap: 20px;
-      align-items: stretch;
-    }
-
-    .address-box {
-      padding: 18px;
-      border: 1px solid rgba(177, 136, 63, 0.18);
-      border-radius: 18px;
-      background: rgba(255,255,255,0.5);
-    }
-
-    .address-box h3 {
-      margin: 0 0 10px;
-      color: var(--gold);
-      font-style: italic;
-      font-weight: 600;
-      font-size: 1.65rem;
-    }
-
-    .address-box p {
-      margin: 8px 0;
-      line-height: 1.45;
-      font-size: 1.12rem;
-      font-weight: 500;
-    }
-
-    .button {
-      display: inline-block;
-      margin-top: 12px;
-      padding: 11px 16px;
-      background: var(--gold);
-      color: #fff;
-      text-decoration: none;
-      border-radius: 999px;
-      font-weight: 600;
-      letter-spacing: 0.03em;
-    }
-
-    .map-wrap {
-      min-height: 360px;
-      border-radius: 18px;
-      overflow: hidden;
-      border: 1px solid rgba(177, 136, 63, 0.18);
-    }
-
-    .map-wrap iframe {
-      width: 100%;
-      height: 100%;
-      border: 0;
-      display: block;
-    }
-
-    footer {
-      text-align: center;
-      padding: 18px 0 6px;
-      color: #8d7859;
-      font-size: 1.08rem;
-      font-weight: 500;
-    }
-
-    @media (max-width: 1024px) {
-      .invitation { min-height: 920px; }
-      .oval { inset: 140px 195px 180px; }
-      .branch.left { left: 30px; }
-      .branch.right { right: 30px; }
-      .dog.left { left: 70px; }
-      .dog.right { right: 70px; }
-    }
-
-    @media (max-width: 820px) {
-      .page { width: min(100% - 18px, 1200px); }
-      .invitation { min-height: auto; padding: 24px 12px 18px; }
-      .invite-stage { min-height: 1220px; }
-      .watercolor.left { left: 16px; }
-      .watercolor.right { right: 16px; }
-      .watercolor { width: 92px; top: 80px; bottom: 110px; }
-      .oval { inset: 160px 64px 380px; border-radius: 50% / 10%; }
-      .branch { width: 220px; top: 42px; }
-      .branch.left { left: -6px; }
-      .branch.right { right: -6px; }
-      .top-flower { top: 126px; width: 130px; }
-      .dog { width: 165px; bottom: 154px; }
-      .dog.left { left: 6px; }
-      .dog.right { right: 6px; }
-      .bottom-ornament { width: 290px; bottom: 60px; }
-      .countdown { grid-template-columns: repeat(2, minmax(120px, 1fr)); }
-      .map-grid { grid-template-columns: 1fr; }
-      .ring1, .ring2 { width: 160px; height: 160px; }
-    }
-
-    @media (max-width: 540px) {
-      .page { width: calc(100% - 12px); padding-top: 10px; }
-      .invitation-shell::before, .panel::before { inset: 8px; }
-      .invite-stage { min-height: 1080px; }
-      .oval { inset: 154px 30px 350px; }
-      .content { padding: 42px 18px; }
-      .branch { width: 178px; }
-      .top-flower { width: 104px; top: 136px; }
-      .dog { width: 130px; bottom: 128px; }
-      .bottom-ornament { width: 250px; bottom: 56px; }
-      .watercolor { width: 70px; }
-      .ring1 { left: -42px; top: 314px; }
-      .ring2 { right: -42px; top: 314px; }
-      .meta { font-size: 1.08rem; }
-      .address { font-size: 1rem; }
-      .panel-inner { padding: 28px 16px 22px; }
+    @media (max-width:640px){
+      .page{padding:0 0 36px}
+      .poster-wrap{border-left:0;border-right:0}
+      .countdown-shell{width:calc(100% - 20px); padding:26px 10px 24px}
+      .countdown{gap:5px}
+      .time-card{padding:12px 2px 10px}
+      .label{font-size:8px;letter-spacing:.08em}
+      .section{margin:14px 10px 0;padding:26px 12px}
+      .map-frame{min-height:360px;aspect-ratio:4/5}
     }
   </style>
 </head>
 <body>
-  <div class="page">
-    <section class="invitation-shell">
-      <div class="invitation">
-        <div class="watercolor left" aria-hidden="true"></div>
-        <div class="watercolor right" aria-hidden="true"></div>
+  <main class="page">
+    <section class="header-banner" aria-label="Cabecera de Constanza y Sebastián">
+      <img src="banner-cabecera.png" alt="Constanza y Sebastián, cabecera floral con galgos" />
+    </section>
 
-        <div class="invite-stage">
-          <div class="sparkle" aria-hidden="true"></div>
-          <div class="ring1" aria-hidden="true"></div>
-          <div class="ring2" aria-hidden="true"></div>
+    <section class="poster-wrap" aria-label="Invitación de matrimonio">
+      <img class="poster" src="invitacion.png" alt="Invitación de matrimonio de Constanza y Sebastián" />
+    </section>
 
-          <img class="branch left" src="assets/flowers-top-left.png" alt="Decoración floral" />
-          <img class="branch right" src="assets/flowers-top-right.png" alt="Decoración floral" />
-          <img class="top-flower" src="assets/flower-top-center.png" alt="Flor decorativa central" />
-          <img class="dog left" src="assets/dog-left.png" alt="Galgo decorativo" />
-          <img class="dog right" src="assets/dog-right.png" alt="Galgo decorativo" />
-          <img class="bottom-ornament" src="assets/flowers-bottom.png" alt="Decoración floral inferior" />
+    <section class="countdown-shell" aria-labelledby="countdown-title">
+      <p class="eyebrow">Falta muy poco para</p>
+      <h1 id="countdown-title">Constanza & Sebastián</h1>
 
-          <div class="oval">
-            <div class="content">
-              <div class="eyebrow">MATRIMONIO</div>
-              <img class="mini-flower" src="assets/flower-top-center.png" alt="Flor ornamental" />
-              <h1 class="names">
-                Constanza
-                <span class="amp">&</span>
-                Sebastián
-              </h1>
-
-              <div class="divider"></div>
-
-              <div class="meta">
-                6 de marzo
-                <br />
-                17:30 hrs.
-              </div>
-
-              <div class="divider"></div>
-
-              <div class="address">
-                María Luisa Santander 568,<br />
-                Providencia
-              </div>
-            </div>
-          </div>
-        </div>
+      <div class="countdown" aria-live="polite">
+        <div class="time-card"><span class="number" id="days">000</span><span class="label">días</span></div>
+        <div class="time-card"><span class="number" id="hours">00</span><span class="label">horas</span></div>
+        <div class="time-card"><span class="number" id="minutes">00</span><span class="label">minutos</span></div>
+        <div class="time-card"><span class="number" id="seconds">00</span><span class="label">segundos</span></div>
       </div>
+
+      <p class="event-line">6 de marzo de 2027 · 17:30 hrs.<br>María Luisa Santander 568, Providencia</p>
     </section>
 
-    <section class="info-area">
-      <article class="panel">
-        <img class="panel-flower-left" src="assets/flowers-top-left.png" alt="" aria-hidden="true" />
-        <img class="panel-flower-right" src="assets/flowers-top-right.png" alt="" aria-hidden="true" />
-        <div class="panel-inner">
-          <h2 class="section-title">Cuenta regresiva</h2>
-          <p class="section-text">Una cuenta en vivo para saber cuánto falta para este día tan especial.</p>
+    <section class="section" aria-labelledby="map-title">
+      <div class="flourish">✦</div>
+      <p class="eyebrow">Cómo llegar</p>
+      <h2 id="map-title">El lugar</h2>
+      <p class="address">María Luisa Santander 568, Providencia, Santiago</p>
 
-          <div class="countdown" aria-live="polite">
-            <div class="time-box"><span id="days" class="num">00</span><span class="label">Días</span></div>
-            <div class="time-box"><span id="hours" class="num">00</span><span class="label">Horas</span></div>
-            <div class="time-box"><span id="minutes" class="num">00</span><span class="label">Minutos</span></div>
-            <div class="time-box"><span id="seconds" class="num">00</span><span class="label">Segundos</span></div>
-          </div>
+      <div class="map-frame">
+        <iframe
+          title="Mapa del lugar del matrimonio"
+          src="https://www.google.com/maps?q=Mar%C3%ADa%20Luisa%20Santander%20568%2C%20Providencia%2C%20Santiago%2C%20Chile&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          allowfullscreen>
+        </iframe>
+      </div>
 
-          <p class="note" id="countdown-note">Actualizado en tiempo real.</p>
-        </div>
-      </article>
+      <div class="actions">
+        <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Mar%C3%ADa%20Luisa%20Santander%20568%2C%20Providencia%2C%20Santiago%2C%20Chile" target="_blank" rel="noopener">Abrir en Google Maps</a>
+      </div>
 
-      <article class="panel">
-        <img class="panel-flower-left" src="assets/flowers-top-left.png" alt="" aria-hidden="true" />
-        <img class="panel-flower-right" src="assets/flowers-top-right.png" alt="" aria-hidden="true" />
-        <div class="panel-inner">
-          <h2 class="section-title">Ubicación</h2>
-          <p class="section-text">Aquí puedes ver el lugar del matrimonio y abrir la dirección directamente en Google Maps.</p>
-
-          <div class="map-grid">
-            <div class="address-box">
-              <h3>María Luisa Santander 568</h3>
-              <p><strong>Comuna:</strong> Providencia</p>
-              <p><strong>Hora:</strong> 17:30 hrs.</p>
-              <p><strong>Fecha:</strong> 6 de marzo de 2027</p>
-              <a class="button" href="https://www.google.com/maps/search/?api=1&query=Mar%C3%ADa+Luisa+Santander+568%2C+Providencia%2C+Chile" target="_blank" rel="noopener noreferrer">Abrir en Google Maps</a>
-            </div>
-            <div class="map-wrap">
-              <iframe
-                title="Mapa de la ubicación del matrimonio"
-                loading="lazy"
-                allowfullscreen
-                referrerpolicy="no-referrer-when-downgrade"
-                src="https://www.google.com/maps?q=Mar%C3%ADa%20Luisa%20Santander%20568%2C%20Providencia%2C%20Chile&z=16&output=embed">
-              </iframe>
-            </div>
-          </div>
-        </div>
-      </article>
+      <p class="note">Nos encantará compartir este día con ustedes.</p>
     </section>
 
-    <footer>
-      Con cariño, Constanza & Sebastián.
-    </footer>
-  </div>
+    <footer>Constanza & Sebastián · 06.03.2027</footer>
+  </main>
 
   <script>
-    const targetDate = new Date('2027-03-06T17:30:00-03:00').getTime();
-    const els = {
+    // Hora del matrimonio en Chile. Marzo de 2027 corresponde a UTC-3.
+    const weddingDate = new Date('2027-03-06T17:30:00-03:00');
+
+    const el = {
       days: document.getElementById('days'),
       hours: document.getElementById('hours'),
       minutes: document.getElementById('minutes'),
-      seconds: document.getElementById('seconds'),
-      note: document.getElementById('countdown-note')
+      seconds: document.getElementById('seconds')
     };
 
-    const pad = (value) => String(value).padStart(2, '0');
+    function pad(value, size = 2) {
+      return String(value).padStart(size, '0');
+    }
 
     function updateCountdown() {
-      const now = Date.now();
-      const distance = targetDate - now;
+      const diff = weddingDate.getTime() - Date.now();
 
-      if (distance <= 0) {
-        els.days.textContent = '00';
-        els.hours.textContent = '00';
-        els.minutes.textContent = '00';
-        els.seconds.textContent = '00';
-        els.note.textContent = '¡Hoy es el gran día!';
+      if (diff <= 0) {
+        el.days.textContent = '000';
+        el.hours.textContent = '00';
+        el.minutes.textContent = '00';
+        el.seconds.textContent = '00';
+        document.querySelector('.eyebrow').textContent = 'Hoy celebramos';
         return;
       }
 
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      const totalSeconds = Math.floor(diff / 1000);
+      const days = Math.floor(totalSeconds / 86400);
+      const hours = Math.floor((totalSeconds % 86400) / 3600);
+      const minutes = Math.floor((totalSeconds % 3600) / 60);
+      const seconds = totalSeconds % 60;
 
-      els.days.textContent = pad(days);
-      els.hours.textContent = pad(hours);
-      els.minutes.textContent = pad(minutes);
-      els.seconds.textContent = pad(seconds);
+      el.days.textContent = pad(days, 3);
+      el.hours.textContent = pad(hours);
+      el.minutes.textContent = pad(minutes);
+      el.seconds.textContent = pad(seconds);
     }
 
     updateCountdown();
