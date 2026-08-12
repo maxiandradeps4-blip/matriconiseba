@@ -276,6 +276,42 @@
 
     .calendar-options.open{display:flex}
 
+    .gift-grid{
+      max-width:620px;
+      margin:22px auto 0;
+      text-align:left;
+      border-top:1px solid rgba(169,120,24,.26);
+      border-bottom:1px solid rgba(169,120,24,.26);
+      padding:18px 0;
+    }
+
+    .gift-row{
+      display:grid;
+      grid-template-columns:140px 1fr;
+      gap:14px;
+      padding:7px 0;
+      font-size:14px;
+      color:#5a5548;
+    }
+
+    .gift-row strong{
+      color:var(--gold);
+      font-weight:600;
+    }
+
+    .gift-row a{
+      color:#5a5548;
+      text-decoration:none;
+      border-bottom:1px solid rgba(169,120,24,.35);
+    }
+
+    .gift-row a:hover{color:var(--gold)}
+
+    @media (max-width:640px){
+      .gift-grid{margin-top:18px}
+      .gift-row{grid-template-columns:1fr;gap:2px;text-align:center}
+    }
+
 
     footer{
       padding:26px 0 0;
@@ -348,6 +384,23 @@
         <a class="btn" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Matrimonio%20Constanza%20%26%20Sebasti%C3%A1n&dates=20270306T203000Z%2F20270306T213000Z&details=Hora%20de%20inicio%3A%2017%3A30%20hrs.&location=Mar%C3%ADa%20Luisa%20Santander%20568%2C%20Providencia%2C%20Santiago%2C%20Chile" target="_blank" rel="noopener">Google Calendar</a>
         <a class="btn" href="https://outlook.live.com/calendar/0/deeplink/compose?subject=Matrimonio%20Constanza%20%26%20Sebasti%C3%A1n&startdt=2027-03-06T17%3A30%3A00-03%3A00&enddt=2027-03-06T18%3A30%3A00-03%3A00&body=Hora%20de%20inicio%3A%2017%3A30%20hrs.&location=Mar%C3%ADa%20Luisa%20Santander%20568%2C%20Providencia%2C%20Santiago%2C%20Chile" target="_blank" rel="noopener">Outlook</a>
         <a class="btn" href="matrimonio-constanza-sebastian.ics" download>Archivo .ICS</a>
+      </div>
+    </section>
+
+
+    <section class="section" aria-labelledby="gift-title">
+      <div class="flourish">✦</div>
+      <p class="eyebrow">Un regalo para el camino</p>
+      <h2 id="gift-title">Lo más importante</h2>
+      <p class="note" style="max-width:700px; margin-top:16px;">Lo más importante para nosotros es compartir este día con ustedes. Si desean hacernos un regalo, pueden hacerlo mediante un aporte para nuestra luna de miel o nuestros proyectos en común.</p>
+
+      <div class="gift-grid">
+        <div class="gift-row"><strong>Nombre</strong><span>Sebastian Farias</span></div>
+        <div class="gift-row"><strong>RUT</strong><span>16.985.541-2</span></div>
+        <div class="gift-row"><strong>Banco</strong><span>Scotiabank</span></div>
+        <div class="gift-row"><strong>Tipo Cuenta</strong><span>Cuenta Corriente</span></div>
+        <div class="gift-row"><strong>Número Cuenta</strong><span>975816850</span></div>
+        <div class="gift-row"><strong>Correo</strong><span><a href="mailto:sebastianfariasb@gmail.com">sebastianfariasb@gmail.com</a></span></div>
       </div>
     </section>
 
